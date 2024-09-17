@@ -1,0 +1,14 @@
+[{
+  "id" : 1,
+  "tenThuoc": "Panadol extra",
+  "price": 30000,
+  "congDung": "Trị đau đầu",
+  "donViThuoc_id": 2
+}, {
+  "id" : 2,
+  "tenThuoc": "Paracitamol",
+  "price": 15000,
+  "congDung": "Sủi C cam bù vitamin C",
+  "donViThuoc_id": 1
+}
+]

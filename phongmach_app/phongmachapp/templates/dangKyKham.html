@@ -1,0 +1,56 @@
+{% extends 'layout/base.html'%}
+
+{% block title %}Đăng Ký Khám{% endblock %}
+
+
+{% block content%}
+<h1 style="text-align: center; margin-bottom: 40px">Đăng Ký Lịch Khám</h1>
+{% if err_msg %}
+<div class="alert-danger"> {{ err_msg }}</div>
+{% endif %}
+<form action="/dangkykham" style="margin-right: 25%; margin-left: 25%" method="post">
+    <div class="mb-3 mt-1">
+        <label class="form-label">Họ và tên</label>
+        <input class="form-control" placeholder="Họ và tên..." name="name">
+    </div>
+
+    <div class="mb-3 mt-1">
+        <label class="form-label">Ngày Sinh</label>
+        <input class="form-control" placeholder="dd/mm/yyyy" name="birthday">
+    </div>
+
+    <div class="mb-3 mt-3">
+        <label class="form-label">Giới tính</label>
+        <select class="form-select" name="gender" width="10">
+            {% for g in genders %}
+            <option value="{{ g[1] }}">{{ g[0] }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="mb-3 mt-3">
+        <label class="form-label">Địa chỉ</label>
+        <input class="form-control" placeholder="Địa chỉ..." name="address">
+    </div>
+
+    <div>
+        <label class="form-label">Ngày Đặt Lịch</label>
+        <input name="date" id="datepicker" width="276"/>
+        <script>
+            $('#datepicker').datepicker({
+                uiLibrary: 'bootstrap5',
+                format: 'dd/mm/yyyy'
+            });
+        </script>
+    </div>
+
+    <div class="mb-3 mt-3">
+        <label class="form-label">Số điện thoại</label>
+        <input class="form-control" placeholder="Số điện thoại..." name="phone">
+    </div>
+
+
+
+    <button type="submit" class="btn btn-primary">Đặt Lịch</button>
+</form>
+{% endblock %}

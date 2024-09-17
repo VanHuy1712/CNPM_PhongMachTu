@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">Phòng Mạch Tư</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Trang chủ</a>
+                </li>
+                <!--                {% for c in categories %}-->
+                <!--                <li class="nav-item">-->
+                <!--                    <a class="nav-link" href="#">{{ c.name }}</a>-->
+                <!--                </li>-->
+                <!--                {% endfor %}-->
+
+            </ul>
+            {% if current_user.is_authenticated %}
+            <a class="p-2 me-2 nav-link" style="color: white" href="/login">
+                <img src="{{ current_user.anhDaiDien }}" width="40" class="rounded img-fluid"/> Xin chào {{ current_user.username }}
+            </a>
+            <a class="p-2 me-2 nav-link text-success" style="color: white" href="/logout">Đăng Xuất</a>
+            {% else %}
+            <a class="p-2 me-2 nav-link" style="color: white" href="/login">Đăng Nhập</a>
+            <a class="p-2 me-2 nav-link text-success" style="color: white" href="/register">Đăng Ký</a>
+            {% endif %}
+        </div>
+    </div>
+
+</nav>

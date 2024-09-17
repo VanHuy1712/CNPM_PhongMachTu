@@ -1,0 +1,58 @@
+{% extends 'layout/base.html' %}
+
+{% block title %}Danh Sách Khám{% endblock %}
+{% block content %}
+<h1 style="text-align: center; margin-bottom: 80px">Danh Sách Khám</h1>
+<div style="margin-right: 25%; margin-left: 25%">
+    <form method="post" class="form-floating mb-3 mt-3" action="/danhsachkham">
+        <div>
+            <label>Chọn Ngày</label>
+            <input name="date" id="datepicker" placeholder="Hãy chọn ngày cần xem danh sách..." required/>
+            <script>
+                $('#datepicker').datepicker({
+                    uiLibrary: 'bootstrap5',
+                    format: 'dd/mm/yyyy',
+                });
+            </script>
+        </div>
+
+        <!--    <div class="mb-3 mt-3">-->
+        <!--        <label>Chọn lịch</label>-->
+        <!--        <select class="form-select" name="gender" >-->
+        <!--            {% for g in genders %}-->
+        <!--            <option value="{{ g[1] }}">{{ g[0] }}</option>-->
+        <!--            {% endfor %}-->
+        <!--        </select>-->
+        <!--    </div>-->
+        <div class="text-center">
+            <button type="submit" class="btn btn-info">Kiểm tra</button>
+        </div>
+    </form>
+    {% if not patients %}
+        <h1>Hiện chưa có danh sách tương ứng cho ngày này!</h1>
+    {% else %}
+    <h1 class="text-center">Danh Sách Bệnh Nhân</h1>
+    <table class="table">
+        <tr>
+            <th>STT</th>
+            <th>Họ Tên</th>
+            <th>Năm Sinh</th>
+            <th></th>
+        </tr>
+        {% for p in patients %}
+        <tr id="patient{{ p.id }}">
+            <td>{{ p.id }}</td>
+            <td>{{ p.hoTen }}</td>
+            <td>{{ p.namSinh }}</td>
+            <td>
+                <button class="btn btn-danger" onclick="del_patient({{ p.id }})">&times;</button>
+            </td>
+
+        </tr>
+        {% endfor %}
+    </table>
+    <button class="btn btn-success" >Lưu Danh Sách</button>
+    {% endif %}
+</div>
+<script src="{{ url_for('static', filename='js/patients.js') }}"></script>
+{% endblock %}

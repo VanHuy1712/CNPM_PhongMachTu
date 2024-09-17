@@ -1,0 +1,40 @@
+{% extends 'layout/base.html'%}
+
+{% block title %}Tra cứu thuốc{% endblock %}
+
+
+{% block content%}
+<h1 style="text-align: center; margin-bottom: 60px">Tra cứu thuốc</h1>
+    <form method="get" action="/tracuuthuoc" style="margin-right: 25%; margin-left: 25%">
+        <div style="display: flex">
+            <input class="form-control me-2" name="q" placeholder="Nhập từ khóa..." type="text">
+            <button class="btn btn-info" type="submit">Tìm</button>
+        </div>
+        {% if not results %}
+            <h1>Hiện không có thuốc!</h1>
+        {% else %}
+        <h1>Danh Sách Thuốc</h1>
+        <div class="row justify-content-center">
+            <table class="medicineTable table">
+                <tr>
+                    <th>STT</th>
+                    <th>Tên thuốc</th>
+                    <th>Công dụng</th>
+                </tr>
+                {% for t in results %}
+                <tr>
+                    <td>{{ t.id }}</td>
+                    <td>{{ t.tenThuoc }}</td>
+                    <td>{{ t.congDung }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        {% endif %}
+     </form>
+<div class="d-flex justify-content-end">
+    <a class="btn btn-outline-dark btn-lg p-2" href="/lapphieukham" style="border-radius:20px">
+        <p class="m-2">Quay về lập phiếu khám</p>
+    </a>
+</div>
+{% endblock %}

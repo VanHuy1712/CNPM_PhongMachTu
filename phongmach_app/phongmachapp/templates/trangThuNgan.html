@@ -1,0 +1,14 @@
+{% extends 'layout/base.html' %}
+
+{% block title %}Trang Thu Ngân{% endblock %}
+{% block content %}
+        <h1 style="text-align: center; margin-bottom: 80px">Trang Thu Ngân</h1>
+{% if err_msg %}
+<h1>Trôn</h1>
+{% endif %}
+        <div class="d-flex justify-content-around">
+            <a class="btn btn-outline-dark btn-lg p-2" href="/tracuuhoadon" style="border-radius:20px">
+                 <h1 class="m-2">Tra Cứu Hóa Đơn</h1>
+            </a>
+        </div>
+{% endblock %}

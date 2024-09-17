@@ -1,0 +1,39 @@
+{% extends 'layout/base.html'%}
+
+{% block title %}Kê toa thuốc{% endblock %}
+
+
+{% block content%}
+<h1 style="text-align: center; margin-bottom: 40px">Danh Sách thuốc kê toa</h1>
+<form action="/ketoathuoc" style="margin-right: 25%; margin-left: 25%" method="post">
+    <div class="mb-3 mt-1" style="display: flex">
+        <label class="form-label">Tên bệnh nhân:</label>
+        <input class="form-control" placeholder="Họ và tên..." name="name">
+        <button type="submit" class="btn btn-primary">Tìm kiếm</button>
+    </div>
+
+    <div class="row justify-content-center">
+        <table class="medicineTable">
+            <tr>
+                <th>Thuốc</th>
+                <th>Số lượng</th>
+            </tr>
+            <tr>
+                <td>
+                        <select class="form-select" name="nameMedicine">
+                            <option value=""></option>
+                            {% for t in thuocs %}
+                                <option value="">{{ t.tenThuoc }}</option>
+                            {% endfor %}
+                        </select>
+                </td>
+                <td>
+                    <input class="form-control" name="quantity">
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Xác nhận</button>
+</form>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'layout/base.html' %}
+
+{% block title %}Trang chủ{% endblock %}
+{% block content %}
+        <h1 style="text-align: center; margin-bottom: 80px">Phần mềm Phòng Mạch Tư</h1>
+{% if err_msg %}
+<h1>Trôn</h1>
+{% endif %}
+        <div class="d-flex justify-content-around">
+            <a class="btn btn-outline-dark btn-lg p-2" href="/benhnhan" style="border-radius:20px">
+                 <h1 class="m-2">Người Dùng</h1>
+            </a>
+            <a class="btn btn-outline-dark btn-lg p-2" href="/yta" style="border-radius:20px">
+                 <h1 class="m-2">Y Tá</h1>
+            </a>
+            <a class="btn btn-outline-dark btn-lg p-2" href="/bacsi" style="border-radius:20px">
+                 <h1 class="m-2">Bác Sĩ</h1>
+            </a>
+            <a class="btn btn-outline-dark btn-lg p-2" href="/thungan" style="border-radius:20px">
+                 <h1 class="m-2">Thu Ngân</h1>
+            </a>
+            <a class="btn btn-outline-dark btn-lg p-2" href="/admin" style="border-radius:20px">
+                 <h1 class="m-2">Quản Trị Viên</h1>
+            </a>
+        </div>
+{% endblock %}
